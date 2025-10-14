@@ -33,7 +33,7 @@ public class ImpuestoProvincial implements Serializable {
     @JoinColumn(name = "id_provincia")
     private Provincia provincia;
 
-    @Column(name = "porcentaje", nullable = false, precision = 5, scale = 2)
+    @Column(name = "porcentaje", nullable = false)
     @NotNull(message = "El porcentaje es obligatorio")
     @DecimalMin(value = "0.0", message = "El porcentaje debe ser positivo")
     private Double porcentaje;

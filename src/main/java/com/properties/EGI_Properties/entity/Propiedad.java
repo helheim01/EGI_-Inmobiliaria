@@ -38,7 +38,7 @@ public class Propiedad implements Serializable {
     @NotBlank(message = "La descripción de la propiedad es obligatoria")
     private String descripcion;
 
-    @Column(name = "precio_base", nullable = false, precision = 12, scale = 2)
+    @Column(name = "precio_base", nullable = false)
     @NotNull(message = "El precio base es obligatorio")
     @Positive(message = "El precio debe ser positivo")
     private Double precioBase;
@@ -47,7 +47,7 @@ public class Propiedad implements Serializable {
     @Column(nullable = false, length = 3)
     private Moneda moneda; // ARS o USD
 
-    @Column(name = "superficie_m2", nullable = false, precision = 8, scale = 2)
+    @Column(name = "superficie_m2", nullable = false)
     @NotNull(message = "La superficie es obligatoria")
     @Positive(message = "La superficie debe ser positiva")
     private Double superficieM2;
