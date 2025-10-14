@@ -1,5 +1,6 @@
 package com.properties.EGI_Properties.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -38,9 +39,11 @@ public class Ubicacion implements Serializable {
     // N:1 con Provincia
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_provincia", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "ubicaciones", "impuestoProvincial"})
     private Provincia provincia;
 
     // 1:N con Propiedad
     @OneToMany(mappedBy = "ubicacion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties
     private List<Propiedad> propiedades = new ArrayList<>();
 }

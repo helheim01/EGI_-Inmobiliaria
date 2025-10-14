@@ -30,21 +30,21 @@ public class UbicacionController {
         return ResponseEntity.ok(ubicacion);
     }
 
-    // POST /provincias/agregar
+    // POST /ubicaciones/agregar
     @PostMapping("/agregar")
     public ResponseEntity<Ubicacion> agregar(@RequestBody Ubicacion ubicacion) {
         Ubicacion ubicacionAgregada = ubicacionService.agregar(ubicacion);
         return ResponseEntity.ok(ubicacionAgregada);
     }
 
-    // PUT /provincias/modificar
+    // PUT /ubicaciones/modificar
     @PutMapping("/modificar")
     public ResponseEntity<Ubicacion> modificar(@RequestBody Ubicacion ubicacion) {
         Ubicacion ubicacionModificada = ubicacionService.modificar(ubicacion);
         return ResponseEntity.ok(ubicacionModificada);
     }
 
-    // DELETE /provincias/eliminar/{id}
+    // DELETE /ubicaciones/eliminar/{id}
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         ubicacionService.eliminar(id);

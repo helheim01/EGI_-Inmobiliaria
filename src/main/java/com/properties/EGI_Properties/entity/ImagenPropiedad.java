@@ -1,4 +1,6 @@
 package com.properties.EGI_Properties.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -34,5 +36,6 @@ public class ImagenPropiedad implements Serializable {
     // N:1 con Propiedad
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_propiedad", nullable = false)
+    @JsonBackReference //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "imagenes"}) //con esto nos ahorramos usar dto
     private Propiedad propiedad;
 }

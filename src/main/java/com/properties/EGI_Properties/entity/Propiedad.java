@@ -1,5 +1,7 @@
 package com.properties.EGI_Properties.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -63,16 +65,19 @@ public class Propiedad implements Serializable {
     // N:1 con Ubicacion
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_ubicacion", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "propiedades"})
     private Ubicacion ubicacion;
 
     // N:1 con TipoPropiedad
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tipopropiedad", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "propiedades"})
     private TipoPropiedad tipoPropiedad;
 
     // 1:N con ImagenPropiedad
     @OneToMany(mappedBy = "propiedad", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @OrderBy("orden ASC")
+    @JsonManagedReference //dueño de la relacion q serializa
     private List<ImagenPropiedad> imagenes = new ArrayList<>();
 
     // Autoasignación de fecha

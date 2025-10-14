@@ -1,5 +1,6 @@
 package com.properties.EGI_Properties.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -31,6 +32,7 @@ public class ImpuestoProvincial implements Serializable {
     @OneToOne
     @MapsId // Indica que la PK viene de Provincia
     @JoinColumn(name = "id_provincia")
+    @JsonBackReference
     private Provincia provincia;
 
     @Column(name = "porcentaje", nullable = false)

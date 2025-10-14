@@ -1,5 +1,5 @@
 package com.properties.EGI_Properties.entity;
 
 public enum Moneda {
-    ARG, USD;
+    ARS, USD;
 }

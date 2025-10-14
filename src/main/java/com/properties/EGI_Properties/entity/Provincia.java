@@ -1,6 +1,7 @@
 package com.properties.EGI_Properties.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -34,9 +35,11 @@ public class Provincia implements Serializable {
 
     // Relación 1:1 inversa (Provincia ↔ ImpuestoProvincial)
     @OneToOne(mappedBy = "provincia", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonManagedReference //para evitar recursividad al buscar una
     private ImpuestoProvincial impuestoProvincial;
 
     // Relación 1:N con Ubicacion
     @OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Ubicacion> ubicaciones = new ArrayList<>();
 }
