@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalle de Propiedad - S.A Angulo Agropecuaria e Inmobiliaria</title>
+
+  <!-- Bootstrap 3 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          <img src="/images/logo.gif" alt="Logo Empresa" class="logo">
+          <span class="company-name">S.A Angulo Agropecuaria e Inmobiliaria</span>
+        </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">Inicio</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="container detalle-propiedad" style="margin-top:70px;">
+    <div class="row">
+      <!-- Imagen de la propiedad -->
+      <div class="col-md-6">
+        <img src="<%= imagenPrincipal %>" alt="<%= propiedad.nombre %>" class="img-responsive img-detalle">
+        <!-- Si quieres mostrar todas las imágenes: -->
+        <% if (propiedad.imagenes && propiedad.imagenes.length > 1) { %>
+          <div class="galeria-miniaturas" style="margin-top:10px;">
+            <% propiedad.imagenes.forEach(function(img){ %>
+              <img src="<%= img.urlImagen %>" alt="thumb" style="width:60px; margin-right:6px;">
+            <% }) %>
+          </div>
+        <% } %>
+      </div>
+
+      <!-- Información de la propiedad -->
+      <div class="col-md-6">
+        <h2 class="nombre-propiedad"><%= propiedad.nombre %></h2>
+
+        <p class="descripcion-propiedad">
+          <%= propiedad.descripcion %>
+        </p>
+
+        <p>
+          <strong>Tipo:</strong> <%= propiedad.tipoPropiedad?.nombre || '' %><br>
+          <strong>Ubicación:</strong> <%= propiedad.ubicacion?.barrio %>, <%= propiedad.ubicacion?.municipio %> - <%= propiedad.ubicacion?.provincia?.nombre %><br>
+          <strong>Superficie:</strong> <%= propiedad.superficieM2 %> m²<br>
+          <strong>Ambientes:</strong> <%= propiedad.ambientes %><br>
+          <strong>Publicado:</strong> <%= fechaPublicacion %>
+        </p>
+
+        <p class="precio-detalle">
+          <% if(propiedad.moneda === 'USD'){ %>
+            <span class="usd">USD <%= propiedad.precioBase %></span>
+          <% } else { %>
+            <span class="ars">ARS <%= propiedad.precioBase %></span>
+          <% } %>
+        </p>
+      </div>
+    </div>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <div class="row formulario-contacto">
+      <div class="col-md-12">
+        <h3>Formulario de Contacto</h3>
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="nombre" class="col-sm-2 control-label">Nombre y Apellido</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre completo" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono" class="col-sm-2 control-label">Teléfono</label>
+            <div class="col-sm-10">
+              <input type="tel" class="form-control" id="telefono" placeholder="Ej: +54 9 261 1234567" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Correo Electrónico</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="email" placeholder="ejemplo@email.com" required>
+            </div>
+          </div>
+
+          <!-- NUEVO CAMPO -->
+          <div class="form-group">
+            <label for="mensaje" class="col-sm-2 control-label">Mensaje / Descripción</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" id="mensaje" rows="4" placeholder="Escriba aquí su mensaje o consulta"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary">Enviar Consulta</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <!-- Mapa de Google Maps -->
+      <div class="col-sm-6">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3361.2611263107655!2d-68.84571838481737!3d-32.88945897417356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e09b43e9a7a5d%3A0x8e41b1f0e4e12a4d!2sMendoza%20City%20Center!5e0!3m2!1ses-419!2sar!4v1696765535679!5m2!1ses-419!2sar"
+            width="100%"
+            height="250"
+            frameborder="0"
+            style="border:0;"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Enlaces y Redes -->
+      <div class="col-sm-6">
+        <div class="footer-info">
+          <div class="footer-links">
+            <h4>Enlaces útiles</h4>
+            <ul class="list-unstyled">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Sobre Nosotros</a></li>
+              <li><a href="#">Propiedades</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Términos y Condiciones</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-social">
+            <h4>Redes Sociales</h4>
+            <ul class="list-unstyled social-list">
+              <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i> Instagram</a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="/js/propiedades.js"></script>
+</body>
+</html>

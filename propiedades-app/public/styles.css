@@ -1,0 +1,246 @@
+body {
+  padding-top: 80px; /* espacio para navbar fijo */
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.company-name {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+/* CONTENIDO PRINCIPAL */
+.main-content {
+  margin-top: 30px;
+}
+
+/* TARJETAS DE PROPIEDADES */
+.propiedad {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.propiedad:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagen rectangular */
+.propiedad img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Información */
+.info {
+  padding: 15px;
+}
+
+.info h3 {
+  margin-top: 0;
+  color: #222;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.precio {
+  font-weight: bold;
+  font-size: 18px;
+  color: #000;
+}
+
+/* Colores específicos de moneda */
+.precio .usd {
+  color: #0bb121; /* Verde para USD */
+  font-weight: bold;
+}
+
+.precio .ars {
+  color: #00aaff; /* Celeste para ARS */
+  font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: #222;
+  color: #eee;
+  padding: 30px 0;
+  margin-top: 40px;
+}
+
+.footer h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+.footer a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* Mapa */
+.map-container iframe {
+  border-radius: 8px;
+}
+
+/* Enlaces del footer */
+.footer-links ul li {
+  margin-bottom: 5px;
+}
+
+/* Redes sociales */
+.footer-social ul li {
+  margin-bottom: 8px;
+}
+
+.footer-social i {
+  margin-right: 8px;
+  color: #00aaff;
+}
+
+/* Espaciado interno derecho */
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-info {
+    flex-direction: column;
+  }
+
+  .map-container iframe {
+    height: 200px;
+  }
+}
+
+
+/* Hace que el enlace no altere el diseño del bloque */
+
+.propiedad-link {
+  text-decoration: none; /* elimina el subrayado */
+  color: inherit; /* mantiene los colores originales del texto */
+  display: block; /* hace que el enlace ocupe todo el div */
+}
+
+.propiedad-link:hover {
+  text-decoration: none; /* evita que se subraye al hacer hover */
+  color: inherit; /* mantiene el color al pasar el mouse */
+}
+
+.propiedad-link:hover .propiedad {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transform: translateY(-3px);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Estilos para propiedades.html */
+
+/* Página de detalle de propiedad */
+.detalle-propiedad {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.img-detalle {
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  width: 100%;
+}
+
+.nombre-propiedad {
+  margin-top: 0;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.descripcion-propiedad {
+  font-size: 15px;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.precio-detalle {
+  margin-top: 25px;
+  font-size: 18px;
+}
+
+.precio-detalle .usd {
+  color: #2ecc71; /* verde */
+  font-weight: bold;
+}
+
+.precio-detalle .ars {
+  color: #00aaff; /* celeste */
+  font-weight: bold;
+}
+
+/* Formulario de contacto */
+.formulario-contacto {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 2px solid #eee;
+}
+
+.formulario-contacto h3 {
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #2a5d84;
+  border-color: #244e6f;
+}
+
+.btn-primary:hover {
+  background-color: #1e4563;
+  border-color: #18384f;
+}
+
+/* Ajustes del textarea en el formulario */
+#mensaje {
+  resize: none; /* Desactiva el cambio de tamaño */
+  min-height: 100px;
+}
