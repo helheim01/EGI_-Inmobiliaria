@@ -57,15 +57,15 @@
           <strong>Publicado:</strong> <%= fechaPublicacion %>
         </p>
 
+        <!-- Mostrar ambos precios -->
         <p class="precio-detalle">
-          <% if(propiedad.moneda === 'USD'){ %>
-            <span class="usd">USD <%= propiedad.precioBase %></span>
-          <% } else { %>
-            <span class="ars">ARS <%= propiedad.precioBase %></span>
+          <strong>Precio ARS:</strong> <span class="ars">ARS <%= precioBase_formatted %></span><br>
+          <% if (precioUSD_formatted) { %>
+            <strong>Precio USD:</strong> <span class="usd">USD <%= precioUSD_formatted %></span>
           <% } %>
         </p>
       </div>
-    </div>
+
 
     <!-- FORMULARIO DE CONTACTO -->
     <div class="row formulario-contacto">

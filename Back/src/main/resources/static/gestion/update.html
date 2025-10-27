@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Propiedad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: #f5f5f5;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          min-height: 100vh;
+          padding-top: 40px;
+        }
+
+        .container {
+          background-color: #ffffff;
+          padding: 30px 40px;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 550px;
+        }
+
+        h2 {
+          text-align: center;
+          color: #333;
+          margin-bottom: 20px;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        label {
+          font-weight: 600;
+          margin-bottom: 5px;
+          color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 1rem;
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        textarea {
+          resize: vertical;
+        }
+
+        .btnRegistrar {
+          background-color: #007bff;
+          color: white;
+          padding: 12px;
+          border: none;
+          border-radius: 5px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        .btnRegistrar:hover {
+          background-color: #0056b3;
+        }
+
+        .divider {
+          border-top: 1px solid #ddd;
+          margin: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+          .container {
+            padding: 20px;
+          }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Editar Propiedad</h2>
+
+    <form id="formPropiedad">
+        <!-- ID para edición -->
+        <label for="id">ID de la Propiedad</label>
+        <input type="number" id="id" name="id" placeholder="Ej: 1" required>
+
+        <!-- Datos principales -->
+        <label for="nombre">Nombre de la Propiedad</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Casa en el Centro" required>
+
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Ej: Casa céntrica, 2 dormitorios, 1 baño" required></textarea>
+
+        <label for="precioBase">Precio Base (ARS)</label>
+        <input type="number" id="precioBase" name="precioBase" step="0.01" placeholder="Ej: 100000.00" required>
+
+        <label for="superficieM2">Superficie (m²)</label>
+        <input type="number" id="superficieM2" name="superficieM2" step="0.1" placeholder="Ej: 120.5" required>
+
+        <label for="ambientes">Cantidad de Ambientes</label>
+        <input type="number" id="ambientes" name="ambientes" placeholder="Ej: 5" required>
+
+        <!-- Relación con ubicación y tipo -->
+        <label for="ubicacion">Ubicación (ID)</label>
+        <input type="number" id="ubicacion" name="ubicacion" placeholder="Ej: 1" required>
+
+        <label for="tipoPropiedad">Tipo de Propiedad (ID)</label>
+        <input type="number" id="tipoPropiedad" name="tipoPropiedad" placeholder="Ej: 1" required>
+
+        <div class="divider"></div>
+
+        <!-- Imagen -->
+        <h3>Editar Imagen</h3>
+        <label for="urlImagen">URL de la Imagen</label>
+        <input type="text" id="urlImagen" name="urlImagen"
+               placeholder="Ej: https://www.shutterstock.com/...jpg" required>
+
+        <label for="orden">Orden</label>
+        <input type="number" id="orden" name="orden" min="1" placeholder="1" required>
+
+        <button type="button" id="btnActualizar" class="btnRegistrar">Actualizar Propiedad</button>
+    </form>
+</div>
+
+<script src="../js/update.js"></script>
+</body>
+</html>

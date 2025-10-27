@@ -37,10 +37,11 @@
                 <h3><%= propiedad.nombre %></h3>
                 <p>Dirección: <%= propiedad.ubicacion.barrio %>, <%= propiedad.ubicacion.municipio %></p>
                 <p class="precio">
-                  <% if(propiedad.moneda === 'USD'){ %>
-                    <span class="usd">USD <%= propiedad.precioBase %></span>
+                <span class="ars">ARS <%= propiedad.precioBase_formatted %></span> | 
+                  <% if(propiedad.precioUSD_formatted){ %>
+                    <span class="usd">USD <%= propiedad.precioUSD_formatted %></span>
                   <% } else { %>
-                    <span class="ars">ARS <%= propiedad.precioBase %></span>
+                    <span class="usd">USD -</span>
                   <% } %>
                 </p>
               </div>
