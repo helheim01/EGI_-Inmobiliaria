@@ -42,6 +42,7 @@ public class PropiedadService implements ICrud<Propiedad> {
         Propiedad existente = repositoryPropiedad.findById(propiedad.getId())
                 .orElseThrow(() -> new IllegalArgumentException("No existe una propiedad con ID " + propiedad.getId()));
 
+        // Actualizar campos básicos
         existente.setNombre(propiedad.getNombre());
         existente.setDescripcion(propiedad.getDescripcion());
         existente.setPrecioBase(propiedad.getPrecioBase());
@@ -49,9 +50,22 @@ public class PropiedadService implements ICrud<Propiedad> {
         existente.setSuperficieM2(propiedad.getSuperficieM2());
         existente.setFechaPublicacion(propiedad.getFechaPublicacion());
         existente.setMoneda(propiedad.getMoneda());
-        existente.setImagenes(propiedad.getImagenes());
+
+        // Actualizar relaciones
         existente.setUbicacion(propiedad.getUbicacion());
         existente.setTipoPropiedad(propiedad.getTipoPropiedad());
+
+        // Gestionar imágenes correctamente
+        if (propiedad.getImagenes() != null) {
+            // Limpiar imágenes existentes
+            existente.getImagenes().clear();
+
+            // Agregar nuevas imágenes y establecer la relación bidireccional
+            propiedad.getImagenes().forEach(imagen -> {
+                imagen.setPropiedad(existente); // Establecer la relación inversa
+                existente.getImagenes().add(imagen);
+            });
+        }
 
         Propiedad actualizada = repositoryPropiedad.save(existente);
         logger.info("Propiedad modificada con éxito: {}", actualizada.getNombre());
