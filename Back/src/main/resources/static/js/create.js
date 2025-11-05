@@ -2,19 +2,59 @@
 const botonRegistrar  = document.getElementById("btnRegistrar");
 const formPropiedad   = document.getElementById("formPropiedad");
 
+// ✅ Validaciones en tiempo real (mientras el usuario escribe)
+
+// Campos que solo aceptan números o decimales
+const camposSoloNumeros = ["precioBase", "superficieM2", "ambientes", "ubicacion", "tipoPropiedad", "orden"];
+camposSoloNumeros.forEach(id => {
+  const input = document.getElementById(id);
+  input.addEventListener("input", () => {
+    input.value = input.value.replace(/[^0-9.,]/g, "");
+  });
+});
+
 botonRegistrar.addEventListener("click", async () => {
     // 1️⃣ Obtener valores del formulario
     const nombre        = document.getElementById("nombre").value.trim();
     const descripcion   = document.getElementById("descripcion").value.trim();
-    const precioBase    = parseFloat(document.getElementById("precioBase").value);
-    const superficieM2  = parseFloat(document.getElementById("superficieM2").value);
-    const ambientes     = parseInt(document.getElementById("ambientes").value, 10);
+    const precioBaseStr = document.getElementById("precioBase").value.trim();
+    const superficieStr = document.getElementById("superficieM2").value.trim();
+    const ambientesStr  = document.getElementById("ambientes").value.trim();
     const ubicacionId   = parseInt(document.getElementById("ubicacion").value, 10);
     const tipoPropiedadId = parseInt(document.getElementById("tipoPropiedad").value, 10);
     const urlImagen     = document.getElementById("urlImagen").value.trim();
-    const orden         = parseInt(document.getElementById("orden").value, 10);
+    const ordenStr      = document.getElementById("orden").value.trim();
 
-    // 2️⃣ Validación básica
+    // 3️⃣ Validaciones numéricas (solo números o decimales)
+    const soloNumeros = /^[0-9]+([.,][0-9]+)?$/;
+
+    if (!soloNumeros.test(precioBaseStr)) {
+        alert("El precio base debe ser un número válido.");
+        return;
+    }
+
+    if (!soloNumeros.test(superficieStr)) {
+        alert("La superficie debe ser un número válido.");
+        return;
+    }
+
+    if (!soloNumeros.test(ambientesStr)) {
+        alert("La cantidad de ambientes debe ser un número válido.");
+        return;
+    }
+
+    if (!soloNumeros.test(ordenStr)) {
+        alert("El orden debe ser un número válido.");
+        return;
+    }
+
+    // 4️⃣ Convertir a números después de validar
+    const precioBase   = parseFloat(precioBaseStr.replace(",", "."));
+    const superficieM2 = parseFloat(superficieStr.replace(",", "."));
+    const ambientes    = parseInt(ambientesStr, 10);
+    const orden        = parseInt(ordenStr, 10);
+
+    // 5️⃣ Validación final de campos vacíos o incorrectos
     if (!nombre || !descripcion || isNaN(precioBase) || isNaN(superficieM2) ||
         isNaN(ambientes) || isNaN(ubicacionId) || isNaN(tipoPropiedadId) ||
         !urlImagen || isNaN(orden)) {
@@ -22,7 +62,7 @@ botonRegistrar.addEventListener("click", async () => {
         return;
     }
 
-    // 3️⃣ Crear JSON de propiedad
+    // 6️⃣ Crear JSON de propiedad
     const propiedad = {
         nombre,
         descripcion,
@@ -35,7 +75,7 @@ botonRegistrar.addEventListener("click", async () => {
     };
 
     try {
-        // 4️⃣ POST para crear propiedad
+        // 7️⃣ POST para crear propiedad
         const respPropiedad = await fetch("http://localhost:8080/propiedades/agregar", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -50,14 +90,14 @@ botonRegistrar.addEventListener("click", async () => {
         const propiedadCreada = await respPropiedad.json();
         const propiedadId = propiedadCreada.id;
 
-        // 5️⃣ Crear JSON de imagen
+        // 8️⃣ Crear JSON de imagen
         const imagen = {
             urlImagen,
             orden,
             propiedad: { id: propiedadId }
         };
 
-        // 6️⃣ POST para crear imagen asociada
+        // 9️⃣ POST para crear imagen asociada
         const respImagen = await fetch("http://localhost:8080/imagenes/agregar", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

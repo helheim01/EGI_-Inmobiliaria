@@ -60,7 +60,7 @@
           resize: vertical;
         }
 
-        .btnRegistrar {
+        .btn {
           background-color: #007bff;
           color: white;
           padding: 12px;
@@ -71,7 +71,7 @@
           transition: background-color 0.3s ease;
         }
 
-        .btnRegistrar:hover {
+        .btn:hover {
           background-color: #0056b3;
         }
 
@@ -81,9 +81,7 @@
         }
 
         @media (max-width: 600px) {
-          .container {
-            padding: 20px;
-          }
+          .container { padding: 20px; }
         }
     </style>
 </head>
@@ -92,46 +90,51 @@
 <div class="container">
     <h2>Editar Propiedad</h2>
 
-    <form id="formPropiedad">
-        <!-- ID para edición -->
-        <label for="id">ID de la Propiedad</label>
-        <input type="number" id="id" name="id" placeholder="Ej: 1" required>
+    <!-- Buscador de propiedad -->
+    <div id="buscador">
+        <label for="idBuscar">Ingresá el ID de la Propiedad a Editar:</label>
+        <input type="number" id="idBuscar" placeholder="Ej: 12" required>
+        <button type="button" id="btnBuscar" class="btn">Buscar Propiedad</button>
+    </div>
 
-        <!-- Datos principales -->
+    <div class="divider"></div>
+
+    <!-- Formulario oculto hasta encontrar propiedad -->
+    <form id="formPropiedad" style="display:none;">
+        <label for="id">ID</label>
+        <input type="number" id="id" name="id" readonly>
+
         <label for="nombre">Nombre de la Propiedad</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Ej: Casa en el Centro" required>
+        <input type="text" id="nombre" name="nombre" required>
 
         <label for="descripcion">Descripción</label>
-        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Ej: Casa céntrica, 2 dormitorios, 1 baño" required></textarea>
+        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
 
         <label for="precioBase">Precio Base (ARS)</label>
-        <input type="number" id="precioBase" name="precioBase" step="0.01" placeholder="Ej: 100000.00" required>
+        <input type="number" id="precioBase" name="precioBase" step="0.01" required>
 
         <label for="superficieM2">Superficie (m²)</label>
-        <input type="number" id="superficieM2" name="superficieM2" step="0.1" placeholder="Ej: 120.5" required>
+        <input type="number" id="superficieM2" name="superficieM2" step="0.1" required>
 
         <label for="ambientes">Cantidad de Ambientes</label>
-        <input type="number" id="ambientes" name="ambientes" placeholder="Ej: 5" required>
+        <input type="number" id="ambientes" name="ambientes" required>
 
-        <!-- Relación con ubicación y tipo -->
         <label for="ubicacion">Ubicación (ID)</label>
-        <input type="number" id="ubicacion" name="ubicacion" placeholder="Ej: 1" required>
+        <input type="number" id="ubicacion" name="ubicacion" required>
 
         <label for="tipoPropiedad">Tipo de Propiedad (ID)</label>
-        <input type="number" id="tipoPropiedad" name="tipoPropiedad" placeholder="Ej: 1" required>
+        <input type="number" id="tipoPropiedad" name="tipoPropiedad" required>
 
         <div class="divider"></div>
 
-        <!-- Imagen -->
-        <h3>Editar Imagen</h3>
+        <h3>Imagen</h3>
         <label for="urlImagen">URL de la Imagen</label>
-        <input type="text" id="urlImagen" name="urlImagen"
-               placeholder="Ej: https://www.shutterstock.com/...jpg" required>
+        <input type="text" id="urlImagen" name="urlImagen" required>
 
         <label for="orden">Orden</label>
-        <input type="number" id="orden" name="orden" min="1" placeholder="1" required>
+        <input type="number" id="orden" name="orden" min="1" required>
 
-        <button type="button" id="btnActualizar" class="btnRegistrar">Actualizar Propiedad</button>
+        <button type="button" id="btnGuardar" class="btn">Guardar Cambios</button>
     </form>
 </div>
 
