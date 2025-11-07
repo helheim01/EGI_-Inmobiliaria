@@ -1,5 +1,6 @@
 package com.properties.EGI_Properties.service;
 
+import com.properties.EGI_Properties.entity.ImagenPropiedad;
 import com.properties.EGI_Properties.entity.Propiedad;
 import com.properties.EGI_Properties.repository.RepositoryPropiedad;
 import org.slf4j.Logger;
@@ -29,6 +30,24 @@ public class PropiedadService implements ICrud<Propiedad> {
         Propiedad guardada = repositoryPropiedad.save(propiedad);
         logger.info("Propiedad agregada con éxito: {}", guardada.getNombre());
         return guardada;
+    }
+
+    // ------------------ AGREGAR IMAGENES -----------
+    @Autowired
+    private ImagenPropiedadService imagenPropiedadService;
+
+    @Transactional
+    public Propiedad agregarImagenes(Integer idPropiedad, List<ImagenPropiedad> nuevasImagenes) {
+        Propiedad propiedad = repositoryPropiedad.findById(idPropiedad)
+                .orElseThrow(() -> new RuntimeException("Propiedad no encontrada con id " + idPropiedad));
+
+        for (ImagenPropiedad imagen : nuevasImagenes) {
+            imagen.setPropiedad(propiedad); // Asociamos la propiedad
+            imagenPropiedadService.agregar(imagen); // Guardamos la imagen usando su propio service
+        }
+
+        // Devolvemos la propiedad actualizada con todas las imágenes
+        return repositoryPropiedad.findById(idPropiedad).get();
     }
 
     // ------------------ MODIFICAR ------------------

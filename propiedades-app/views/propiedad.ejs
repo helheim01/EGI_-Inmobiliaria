@@ -29,17 +29,41 @@
   <div class="container detalle-propiedad" style="margin-top:70px;">
     <div class="row">
       <!-- Imagen de la propiedad -->
-      <div class="col-md-6">
-        <img src="<%= imagenPrincipal %>" alt="<%= propiedad.nombre %>" class="img-responsive img-detalle">
-        <!-- Si quieres mostrar todas las imágenes: -->
-        <% if (propiedad.imagenes && propiedad.imagenes.length > 1) { %>
-          <div class="galeria-miniaturas" style="margin-top:10px;">
-            <% propiedad.imagenes.forEach(function(img){ %>
-              <img src="<%= img.urlImagen %>" alt="thumb" style="width:60px; margin-right:6px;">
-            <% }) %>
+<div class="col-md-6">
+  <% if (propiedad.imagenes && propiedad.imagenes.length > 0) { %>
+    <div id="carouselPropiedad" class="carousel slide" data-ride="carousel">
+      
+      <!-- Indicadores (los puntitos debajo del carrusel) -->
+      <ol class="carousel-indicators">
+        <% propiedad.imagenes.forEach(function(img, index) { %>
+          <li data-target="#carouselPropiedad" data-slide-to="<%= index %>" class="<%= index === 0 ? 'active' : '' %>"></li>
+        <% }) %>
+      </ol>
+
+      <!-- Imágenes del carrusel -->
+      <div class="carousel-inner">
+        <% propiedad.imagenes.forEach(function(img, index) { %>
+          <div class="item <%= index === 0 ? 'active' : '' %>">
+            <img src="<%= img.urlImagen %>" alt="Imagen <%= index + 1 %>" class="img-responsive img-detalle">
           </div>
-        <% } %>
+        <% }) %>
       </div>
+
+      <!-- Controles de navegación -->
+      <a class="left carousel-control" href="#carouselPropiedad" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carouselPropiedad" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+
+    </div>
+  <% } else { %>
+    <!-- Imagen por defecto si no hay ninguna -->
+    <img src="/images/fallback.jpg" alt="Sin imagen disponible" class="img-responsive img-detalle">
+  <% } %>
+</div>
+
 
       <!-- Información de la propiedad -->
       <div class="col-md-6">

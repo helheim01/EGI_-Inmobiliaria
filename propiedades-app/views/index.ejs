@@ -19,8 +19,24 @@
           <span class="company-name">S.A Angulo Agropecuaria e Inmobiliaria</span>
         </a>
       </div>
+
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/">Inicio</a></li>
+      <li><a href="/">Inicio</a></li>
+
+      <!-- FILTRO DE PROVINCIAS -->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          Filtros <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu" style="padding: 10px; width: 250px;">
+          <li>
+            <label for="selectProvincia">Provincia</label>
+            <select id="selectProvincia" class="form-control">
+              <option value="">Todas las provincias</option>
+            </select>
+          </li>
+        </ul>
+      </li>
       </ul>
     </div>
   </nav>
@@ -32,7 +48,11 @@
         <div class="col-sm-6 col-md-4">
           <a href="/propiedad/<%= propiedad.id %>" class="propiedad-link">
             <div class="propiedad">
-              <img src="<%= propiedad.imagenes[0]?.urlImagen %>" alt="<%= propiedad.nombre %>" class="img-responsive">
+              <% if (propiedad.imagenes && propiedad.imagenes.length > 0) { %>
+                <img src="<%= propiedad.imagenes[0].urlImagen %>" alt="<%= propiedad.nombre %>" class="img-responsive">
+              <% } else { %>
+                <img src="/images/fallback.jpg" alt="Sin imagen disponible" class="img-responsive">
+              <% } %>
               <div class="info">
                 <h3><%= propiedad.nombre %></h3>
                 <p>Dirección: <%= propiedad.ubicacion.barrio %>, <%= propiedad.ubicacion.municipio %></p>
@@ -92,5 +112,6 @@
   <!-- Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="/js/filtros.js"></script>
 </body>
 </html>

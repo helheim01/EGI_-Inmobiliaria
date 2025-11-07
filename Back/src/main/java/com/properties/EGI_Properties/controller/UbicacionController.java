@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*") // permite cualquier origen
 @RestController
 @Validated
 @RequestMapping("/ubicaciones")

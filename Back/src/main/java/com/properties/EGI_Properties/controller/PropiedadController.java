@@ -1,5 +1,6 @@
 package com.properties.EGI_Properties.controller;
 
+import com.properties.EGI_Properties.entity.ImagenPropiedad;
 import com.properties.EGI_Properties.entity.Propiedad;
 import com.properties.EGI_Properties.service.PropiedadService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,16 @@ public class PropiedadController {
     public ResponseEntity<Propiedad> agregar(@RequestBody Propiedad propiedad) {
         Propiedad nuevaPropiedad = propiedadService.agregar(propiedad);
         return ResponseEntity.ok(nuevaPropiedad);
+    }
+
+    // POST /propiedades/{id}/imagenes/agregar
+    @PostMapping("/{id}/imagenes/agregar")
+    public ResponseEntity<Propiedad> agregarImagenes(
+            @PathVariable Integer id,
+            @RequestBody List<ImagenPropiedad> nuevasImagenes) {
+
+        Propiedad propiedadActualizada = propiedadService.agregarImagenes(id, nuevasImagenes);
+        return ResponseEntity.ok(propiedadActualizada);
     }
 
     // PUT /propiedades/modificar
