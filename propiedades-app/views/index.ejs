@@ -11,35 +11,45 @@
 </head>
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">
-          <img src="/images/logo.gif" alt="Logo Empresa" class="logo">
-          <span class="company-name">S.A Angulo Agropecuaria e Inmobiliaria</span>
-        </a>
-      </div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <img src="/images/logo.gif" alt="Logo Empresa" class="logo">
+        <span class="company-name">S.A Angulo Agropecuaria e Inmobiliaria</span>
+      </a>
+    </div>
 
+    <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="/">Inicio</a></li>
+        <li class="active"><a href="/">Inicio</a></li>
+        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
 
-      <!-- FILTRO DE PROVINCIAS -->
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Filtros <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" role="menu" style="padding: 10px; width: 250px;">
-          <li>
-            <label for="selectProvincia">Provincia</label>
-            <select id="selectProvincia" class="form-control">
-              <option value="">Todas las provincias</option>
-            </select>
-          </li>
-        </ul>
-      </li>
+        <!-- FILTRO DE PROVINCIAS -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Filtros <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu" style="padding: 10px; width: 250px;">
+            <li>
+              <label for="selectProvincia">Provincia</label>
+              <select id="selectProvincia" class="form-control">
+                <option value="">Todas las provincias</option>
+              </select>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- CONTENIDO PRINCIPAL -->
   <div class="container main-content" style="margin-top:70px;">
@@ -97,6 +107,9 @@
               <h4>Enlaces útiles</h4>
               <ul class="list-unstyled">
                 <li><a href="/">Inicio</a></li>
+                <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="/servicios">Servicios</a></li>
+                <li><a href="/contacto">Contacto</a></li>
               </ul>
               <p>©2025 ANGULO INNOCENTI. All rights reserved.</p>
             </div>
@@ -105,6 +118,7 @@
       </div>
     </div>
   </footer>
+
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -64,6 +64,21 @@ app.get('/', async (req, res) => {
   }
 });
 
+// Ruta sobre nosotros
+app.get('/sobre-nosotros', (req, res) => {
+  res.render('sobre-nosotros');
+});
+
+// Ruta servicios
+app.get('/servicios', (req, res) => {
+  res.render('servicios');
+});
+
+// Ruta contacto
+app.get('/contacto', (req, res) => {
+  res.render('contacto');
+});
+
 // Ruta detalle: propiedad individual
 app.get('/propiedad/:id', async (req, res) => {
   const id = req.params.id;

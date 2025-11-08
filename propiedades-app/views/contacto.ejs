@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto - S.A Angulo Agropecuaria e Inmobiliaria</title>
+
+  <!-- Bootstrap 3 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <img src="/images/logo.gif" alt="Logo Empresa" class="logo">
+          <span class="company-name">S.A Angulo Agropecuaria e Inmobiliaria</span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+          <li><a href="/servicios">Servicios</a></li>
+          <li class="active"><a href="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="container contacto-page" style="margin-top:90px;">
+    
+    <!-- BANNER HERO -->
+    <div class="row banner-hero-contacto">
+      <div class="col-md-12">
+        <h1 class="titulo-principal">Contacto</h1>
+        <p class="subtitulo-principal">Estamos aquí para ayudarte. Escribinos y te responderemos a la brevedad.</p>
+      </div>
+    </div>
+
+    <!-- INTRODUCCIÓN -->
+    <div class="row seccion-intro-contacto">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h2 class="titulo-seccion-cont">¿Tenés alguna consulta?</h2>
+        <p class="texto-intro-contacto">
+          Ya sea que estés buscando comprar, vender, alquilar o simplemente necesites asesoramiento, nuestro equipo está listo para atenderte. Completá el formulario y nos pondremos en contacto contigo lo antes posible.
+        </p>
+      </div>
+    </div>
+
+    <!-- INFORMACIÓN DE CONTACTO E IMAGEN -->
+    <div class="row seccion-info-contacto">
+      <div class="col-md-6">
+        <img src="/images/contacto-oficina.jpg" alt="Nuestra Oficina" class="img-responsive img-contacto">
+      </div>
+      <div class="col-md-6">
+        <div class="info-contacto-detalle">
+          <h3>Información de Contacto</h3>
+          <div class="contacto-item">
+            <div class="contacto-icono">
+              <span class="glyphicon glyphicon-map-marker"></span>
+            </div>
+            <div class="contacto-texto">
+              <h4>Dirección</h4>
+              <p>Mendoza, Argentina<br>Zona Centro</p>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <div class="contacto-icono">
+              <span class="glyphicon glyphicon-phone"></span>
+            </div>
+            <div class="contacto-texto">
+              <h4>Teléfono</h4>
+              <p>+54 9 261 XXX-XXXX<br>Lunes a Viernes 9:00 - 18:00hs</p>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <div class="contacto-icono">
+              <span class="glyphicon glyphicon-envelope"></span>
+            </div>
+            <div class="contacto-texto">
+              <h4>Email</h4>
+              <p>info@anguloagropecuaria.com<br>ventas@anguloagropecuaria.com</p>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <div class="contacto-icono">
+              <span class="glyphicon glyphicon-time"></span>
+            </div>
+            <div class="contacto-texto">
+              <h4>Horario de Atención</h4>
+              <p>Lunes a Viernes: 9:00 - 18:00hs<br>Sábados: 9:00 - 13:00hs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <div class="row formulario-contacto-seccion">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="formulario-contacto-contenedor">
+          <h3>Envíanos tu Consulta</h3>
+          <p class="subtitulo-formulario">Completá el formulario y nos comunicaremos contigo en menos de 24 horas hábiles.</p>
+          
+          <form class="form-horizontal formulario-contacto-principal">
+            <div class="form-group">
+              <label for="nombre" class="col-sm-3 control-label">Nombre y Apellido</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre completo" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="telefono" class="col-sm-3 control-label">Teléfono</label>
+              <div class="col-sm-9">
+                <input type="tel" class="form-control" id="telefono" placeholder="Ej: +54 9 261 1234567" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="col-sm-3 control-label">Correo Electrónico</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="email" placeholder="ejemplo@email.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="asunto" class="col-sm-3 control-label">Asunto</label>
+              <div class="col-sm-9">
+                <select class="form-control" id="asunto" required>
+                  <option value="">Seleccione un asunto</option>
+                  <option value="compra">Consulta sobre compra</option>
+                  <option value="venta">Quiero vender mi propiedad</option>
+                  <option value="tasacion">Solicitar tasación</option>
+                  <option value="asesoria">Asesoramiento</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje" class="col-sm-3 control-label">Mensaje</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" id="mensaje" rows="6" placeholder="Escriba aquí su mensaje o consulta" required></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" class="btn btn-primary btn-lg btn-contacto">
+                  <span class="glyphicon glyphicon-send"></span> Enviar Consulta
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- MAPA -->
+    <div class="row seccion-mapa-contacto">
+      <div class="col-md-12">
+        <h2 class="titulo-seccion-cont text-center">Nuestra Ubicación</h2>
+        <p class="texto-mapa text-center">Visitanos en nuestra oficina en Mendoza</p>
+        <div class="mapa-grande">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.4835115114547!2d-68.8485867!3d-32.885382299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0902e2540031%3A0x617cd2d167bd9169!2sAngulo%20Innocenti%20Viticultores!5e0!3m2!1ses!2sar!4v1762354663673!5m2!1ses!2sar"
+            width="100%"
+            height="450"
+            frameborder="0"
+            style="border:0; border-radius: 8px;"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ RÁPIDO -->
+    <div class="row seccion-faq-contacto">
+      <div class="col-md-12">
+        <h2 class="titulo-seccion-cont text-center">Preguntas Frecuentes</h2>
+      </div>
+      <div class="col-md-6">
+        <div class="faq-item">
+          <h4><span class="glyphicon glyphicon-question-sign"></span> ¿Cuánto tardan en responder?</h4>
+          <p>Respondemos todas las consultas en menos de 24 horas hábiles.</p>
+        </div>
+        <div class="faq-item">
+          <h4><span class="glyphicon glyphicon-question-sign"></span> ¿Cobran por la tasación?</h4>
+          <p>La primera tasación es sin cargo para propiedades dentro de Mendoza.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="faq-item">
+          <h4><span class="glyphicon glyphicon-question-sign"></span> ¿Atienden fuera de horario?</h4>
+          <p>Podés contactarnos por WhatsApp fuera del horario de oficina y te responderemos a la brevedad.</p>
+        </div>
+        <div class="faq-item">
+          <h4><span class="glyphicon glyphicon-question-sign"></span> ¿Hacen visitas a domicilio?</h4>
+          <p>Sí, coordinamos visitas sin cargo para evaluar tu propiedad.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <!-- Mapa de Google Maps -->
+        <div class="col-sm-6">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.4835115114547!2d-68.8485867!3d-32.885382299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0902e2540031%3A0x617cd2d167bd9169!2sAngulo%20Innocenti%20Viticultores!5e0!3m2!1ses!2sar!4v1762354663673!5m2!1ses!2sar"
+              width="100%"
+              height="250"
+              frameborder="0"
+              style="border:0;"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Enlaces y Redes -->
+        <div class="col-sm-6">
+          <div class="footer-info">
+            <div class="footer-links">
+              <h4>Enlaces útiles</h4>
+              <ul class="list-unstyled">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="/servicios">Servicios</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+              </ul>
+              <p>©2025 ANGULO INNOCENTI. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="/js/contacto.js"></script>
+</body>
+</html>

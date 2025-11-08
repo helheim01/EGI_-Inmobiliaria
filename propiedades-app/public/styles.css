@@ -1,141 +1,259 @@
 body {
-  padding-top: 80px; /* espacio para navbar fijo */
-  background-color: #f8f9fa;
+  padding-top: 80px;
+  background-color: #f5f5f5;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* NAVBAR */
 .navbar {
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #2196F3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 80px; /* Aumentado */
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
+  padding: 20px 15px !important; /* Aumentado con !important para sobrescribir Bootstrap */
+  height: 80px; /* Altura igual al navbar */
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 60px;
   object-fit: contain;
   display: inline-block;
 }
 
 .company-name {
   font-weight: bold;
-  color: #333;
-  font-size: 18px;
+  color: #2196F3;
+  font-size: 22px;
   vertical-align: middle;
+  line-height: 1.2; /* Mejor alineación vertical */
+}
+
+.navbar-nav > li > a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  padding: 30px 15px; /* Aumentado para que coincida con la altura */
+  transition: color 0.3s ease;
+  line-height: 20px;
+}
+
+.navbar-nav > li > a:hover {
+  color: #2196F3;
+  background-color: transparent;
+}
+
+.navbar-nav > li.active > a {
+  color: #2196F3;
+  background-color: transparent;
+  border-bottom: 3px solid #2196F3;
 }
 
 /* CONTENIDO PRINCIPAL */
 .main-content {
-  margin-top: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* TÍTULO DE SECCIÓN */
+.propiedades-titulo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.propiedades-titulo h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.propiedades-titulo p {
+  font-size: 18px;
+  color: #666;
 }
 
 /* TARJETAS DE PROPIEDADES */
 .propiedad {
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   margin-bottom: 30px;
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
 }
 
 .propiedad:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.2);
+  border-color: #2196F3;
 }
 
-/* Imagen rectangular */
+/* Imagen de propiedad */
 .propiedad img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.propiedad:hover img {
+  transform: scale(1.05);
+}
+
+/* Contenedor de imagen con overlay */
+.propiedad-imagen-container {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
 }
 
 /* Información */
 .info {
-  padding: 15px;
+  padding: 20px;
 }
 
 .info h3 {
   margin-top: 0;
-  color: #222;
-  font-size: 18px;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 20px;
   font-weight: 600;
+  line-height: 1.3;
+  min-height: 52px;
 }
 
 .info p {
-  margin: 5px 0;
-  color: #555;
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.info p span.glyphicon {
+  color: #2196F3;
+  margin-right: 6px;
 }
 
 .precio {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
   font-weight: bold;
   font-size: 18px;
   color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Colores específicos de moneda */
 .precio .usd {
-  color: #0bb121; /* Verde para USD */
+  color: #4CAF50;
   font-weight: bold;
 }
 
 .precio .ars {
-  color: #00aaff; /* Celeste para ARS */
+  color: #2196F3;
   font-weight: bold;
+}
+
+/* Badge de destacado (opcional) */
+.propiedad-destacada {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== FOOTER ===== */
 .footer {
-  background-color: #222;
+  background: linear-gradient(135deg, #263238 0%, #37474F 100%);
   color: #eee;
-  padding: 30px 0;
-  margin-top: 40px;
+  padding: 40px 0 20px;
+  margin-top: 60px;
   width: 100%;
 }
 
 .footer h4 {
-  font-size: 16px;
-  margin-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 20px;
   color: #fff;
   font-weight: 600;
-  border-bottom: 1px solid #444;
-  padding-bottom: 5px;
+  border-bottom: 2px solid #2196F3;
+  padding-bottom: 10px;
+  display: inline-block;
 }
 
 .footer a {
   color: #bbb;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #fff;
+  color: #2196F3;
+}
+
+.footer p {
+  color: #999;
+  margin-top: 20px;
+  font-size: 14px;
 }
 
 /* Mapa */
+.map-container {
+  margin-bottom: 20px;
+}
+
 .map-container iframe {
   border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Enlaces del footer */
+.footer-links ul {
+  padding-left: 0;
+}
+
 .footer-links ul li {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-links ul li a {
+  display: inline-block;
+  padding: 5px 0;
 }
 
 /* Redes sociales */
+.footer-social ul {
+  padding-left: 0;
+}
+
 .footer-social ul li {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  list-style: none;
 }
 
 .footer-social i {
-  margin-right: 8px;
-  color: #00aaff;
+  margin-right: 10px;
+  color: #2196F3;
+  font-size: 18px;
 }
 
 /* Espaciado interno derecho */
@@ -143,11 +261,88 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
+}
+
+/* Enlace de tarjeta */
+.propiedad-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.propiedad-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.propiedad-link:focus {
+  outline: none;
+}
+
+/* FILTROS DROPDOWN */
+.navbar .dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+}
+
+.navbar .dropdown-menu label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.navbar .dropdown-menu .form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.navbar .dropdown-menu .form-control:focus {
+  border-color: #2196F3;
+  box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .navbar-brand {
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 15px;
+  }
+  
+  .company-name {
+    font-size: 16px;
+  }
+  
+  .logo {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .propiedades-titulo h1 {
+    font-size: 28px;
+  }
+  
+  .propiedades-titulo p {
+    font-size: 16px;
+  }
+  
+  .propiedad img {
+    height: 180px;
+  }
+  
+  .info h3 {
+    font-size: 18px;
+    min-height: auto;
+  }
+  
+  .precio {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
   .footer-info {
     flex-direction: column;
   }
@@ -155,28 +350,11 @@ body {
   .map-container iframe {
     height: 200px;
   }
+  
+  .navbar-nav > li > a {
+    padding: 15px;
+  }
 }
-
-
-/* Hace que el enlace no altere el diseño del bloque */
-
-.propiedad-link {
-  text-decoration: none; /* elimina el subrayado */
-  color: inherit; /* mantiene los colores originales del texto */
-  display: block; /* hace que el enlace ocupe todo el div */
-}
-
-.propiedad-link:hover {
-  text-decoration: none; /* evita que se subraye al hacer hover */
-  color: inherit; /* mantiene el color al pasar el mouse */
-}
-
-.propiedad-link:hover .propiedad {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transform: translateY(-3px);
-  transition: all 0.2s ease-in-out;
-}
-
 /* Estilos para propiedades.html */
 
 /* Página de detalle de propiedad */
@@ -185,64 +363,1198 @@ body {
   margin-bottom: 50px;
 }
 
-.img-detalle {
-  border-radius: 6px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  width: 100%;
+/* Carrusel de imágenes */
+.carousel {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
 }
 
+.carousel-inner > .item > img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.carousel-control {
+  background: none;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+  width: 50px;
+}
+
+.carousel-control .glyphicon {
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  top: 50%;
+  margin-top: -20px;
+}
+
+.carousel-indicators {
+  bottom: 15px;
+}
+
+.carousel-indicators li {
+  border: 2px solid #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-indicators .active {
+  background-color: #2196F3;
+  border-color: #2196F3;
+}
+
+/* Imagen sin carrusel */
+.img-detalle {
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+/* Información de la propiedad */
 .nombre-propiedad {
   margin-top: 0;
-  font-size: 26px;
+  margin-bottom: 20px;
+  font-size: 32px;
   font-weight: bold;
+  color: #333;
+  line-height: 1.2;
 }
 
 .descripcion-propiedad {
-  font-size: 15px;
-  margin-top: 15px;
-  line-height: 1.6;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  line-height: 1.8;
+  color: #555;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #2196F3;
 }
 
-.precio-detalle {
-  margin-top: 25px;
+/* Detalles de la propiedad */
+.detalle-propiedad p {
+  font-size: 15px;
+  line-height: 2;
+  color: #666;
+}
+
+.detalle-propiedad p strong {
+  color: #333;
+  font-weight: 600;
+  min-width: 120px;
+  display: inline-block;
+}
+
+/* Tarjeta de información */
+.info-card {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.info-card h4 {
   font-size: 18px;
+  font-weight: bold;
+  color: #2196F3;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e3f2fd;
+}
+
+/* Precio destacado */
+.precio-detalle {
+  margin-top: 30px;
+  padding: 25px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
+  border-radius: 10px;
+  border: 2px solid #2196F3;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.1);
+}
+
+.precio-detalle strong {
+  font-size: 16px;
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .precio-detalle .usd {
-  color: #2ecc71; /* verde */
+  color: #4CAF50;
   font-weight: bold;
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .precio-detalle .ars {
-  color: #00aaff; /* celeste */
+  color: #2196F3;
   font-weight: bold;
+  font-size: 28px;
+  display: block;
 }
 
-/* Formulario de contacto */
-.formulario-contacto {
-  margin-top: 50px;
-  padding-top: 30px;
-  border-top: 2px solid #eee;
+/* Iconos en detalles */
+.detalle-propiedad .glyphicon {
+  color: #2196F3;
+  margin-right: 8px;
 }
 
-.formulario-contacto h3 {
+/* Características en lista */
+.caracteristicas-lista {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.caracteristicas-lista li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  color: #555;
+}
+
+.caracteristicas-lista li:last-child {
+  border-bottom: none;
+}
+
+.caracteristicas-lista .glyphicon {
+  color: #4CAF50;
+  margin-right: 10px;
+}
+
+/* Formulario de contacto - PROPIEDAD (clases específicas) */
+.formulario-contacto-propiedad {
+  margin-top: 80px;
+  margin-bottom: 30px;
+  padding-top: 50px;
+  border-top: 3px solid #2196F3;
+  background-color: #f9f9f9;
+  padding: 50px 0;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.formulario-contacto-propiedad .formulario-contacto-contenedor {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.formulario-contacto-propiedad h3 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.formulario-contacto-propiedad h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #2196F3;
+  margin: 15px auto 30px;
+}
+
+.formulario-contacto-propiedad .form-group {
   margin-bottom: 25px;
+}
+
+.formulario-contacto-propiedad label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+  font-size: 15px;
+}
+
+.formulario-contacto-propiedad .form-control {
+  font-size: 15px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.formulario-contacto-propiedad .form-control:focus {
+  border-color: #2196F3;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.2);
+  outline: none;
+}
+
+.formulario-contacto-propiedad .btn-primary {
+  padding: 14px 40px;
+  font-size: 16px;
   font-weight: bold;
+  background-color: #2196F3;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
 }
 
-.btn-primary {
-  background-color: #2a5d84;
-  border-color: #244e6f;
+.formulario-contacto-propiedad .btn-primary:hover {
+  background-color: #1976D2;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
 }
 
-.btn-primary:hover {
-  background-color: #1e4563;
-  border-color: #18384f;
+.formulario-contacto-propiedad textarea {
+  resize: vertical;
+  min-height: 130px;
 }
 
-/* Ajustes del textarea en el formulario */
-#mensaje {
-  resize: none; /* Desactiva el cambio de tamaño */
-  min-height: 100px;
+/* Badge de estado */
+.estado-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 15px;
+  text-transform: uppercase;
 }
 
+.estado-badge.disponible {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.estado-badge.reservado {
+  background-color: #FF9800;
+  color: #fff;
+}
+
+.estado-badge.vendido {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Botón volver */
+.btn-volver {
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2196F3;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+  color: #1976D2;
+  text-decoration: none;
+  transform: translateX(-5px);
+}
+
+.btn-volver .glyphicon {
+  font-size: 14px;
+}
+
+/* Responsive para formulario propiedad */
+@media (max-width: 768px) {
+  .carousel-inner > .item > img,
+  .img-detalle {
+    height: 280px;
+  }
+  
+  .nombre-propiedad {
+    font-size: 24px;
+  }
+  
+  .descripcion-propiedad {
+    font-size: 14px;
+    padding: 15px;
+  }
+  
+  .precio-detalle .usd,
+  .precio-detalle .ars {
+    font-size: 22px;
+  }
+  
+  .formulario-contacto-propiedad {
+    padding: 30px 15px;
+  }
+  
+  .formulario-contacto-propiedad .formulario-contacto-contenedor {
+    padding: 25px 20px;
+  }
+  
+  .formulario-contacto-propiedad .btn-primary {
+    width: 100%;
+  }
+  
+  .carousel-control .glyphicon {
+    font-size: 30px;
+  }
+}
+
+/* PÁGINA SOBRE NOSOTROS */
+.sobre-nosotros-page {
+  padding-bottom: 40px;
+}
+
+/* Banner Hero */
+.banner-hero {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  padding: 60px 0;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.titulo-principal {
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.subtitulo-principal {
+  font-size: 20px;
+  color: #fff;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Secciones de Contenido */
+.seccion-contenido {
+  margin-bottom: 60px;
+}
+
+.titulo-seccion-sn {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.titulo-seccion-sn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: #2196F3;
+}
+
+.titulo-seccion-sn.text-center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.texto-seccion-sn {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.img-seccion {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Sección Invertida */
+.seccion-invertida {
+  background-color: #f9f9f9;
+  padding: 40px 0;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Sección Destacada */
+.seccion-destacada {
+  background-color: #e3f2fd;
+  padding: 50px 0;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Objetivos */
+.objetivo-card {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.objetivo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.objetivo-numero {
+  font-size: 48px;
+  font-weight: bold;
+  color: #2196F3;
+  opacity: 0.3;
+  margin-bottom: 15px;
+}
+
+.objetivo-card h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.objetivo-card p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Valores */
+.valor-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.valor-item:hover {
+  background-color: #f9f9f9;
+}
+
+.valor-icono {
+  font-size: 36px;
+  color: #2196F3;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.valor-contenido h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.valor-contenido p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Sección CTA */
+.seccion-cta {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  padding: 60px 0;
+  margin: 60px -15px 0 -15px;
+  border-radius: 8px;
+}
+
+.seccion-cta h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.seccion-cta p {
+  font-size: 18px;
+  color: #fff;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.seccion-cta .btn {
+  margin: 0 10px;
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.seccion-cta .btn-primary {
+  background-color: #fff;
+  border: none;
+  color: #2196F3;
+}
+
+.seccion-cta .btn-primary:hover {
+  background-color: #f5f5f5;
+  color: #1976D2;
+}
+
+.seccion-cta .btn-default {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.seccion-cta .btn-default:hover {
+  background-color: #fff;
+  color: #2196F3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .titulo-principal {
+    font-size: 32px;
+  }
+  
+  .subtitulo-principal {
+    font-size: 16px;
+  }
+  
+  .titulo-seccion-sn {
+    font-size: 28px;
+  }
+  
+  .seccion-contenido {
+    margin-bottom: 40px;
+  }
+  
+  .img-seccion {
+    margin-bottom: 30px;
+  }
+  
+  .objetivo-card {
+    margin-bottom: 20px;
+  }
+  
+  .seccion-cta h2 {
+    font-size: 28px;
+  }
+  
+  .seccion-cta .btn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+
+
+
+/* PÁGINA SERVICIOS */
+.servicios-page {
+  padding-bottom: 40px;
+}
+
+/* Banner Hero Servicios */
+.banner-hero-servicios {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  padding: 60px 0;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Introducción Servicios */
+.seccion-intro-servicios {
+  margin-bottom: 60px;
+}
+
+.titulo-seccion-serv {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.titulo-seccion-serv.text-center::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: #2196F3;
+}
+
+.texto-intro-servicios {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Servicios Detallados */
+.servicio-detalle {
+  margin-bottom: 80px;
+  align-items: center;
+}
+
+.servicio-invertido {
+  background-color: #f9f9f9;
+  padding: 40px 0;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.img-servicio {
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.servicio-icono-grande {
+  font-size: 64px;
+  color: #2196F3;
+  margin-bottom: 20px;
+}
+
+.titulo-servicio {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.descripcion-servicio {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.lista-caracteristicas {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-caracteristicas li {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 12px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.lista-caracteristicas li .glyphicon {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #2196F3;
+  font-size: 16px;
+}
+
+/* Servicios Adicionales */
+.seccion-servicios-adicionales {
+  background-color: #e3f2fd;
+  padding: 50px 0;
+  margin: 60px -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.servicio-adicional-card {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.servicio-adicional-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.icono-adicional {
+  font-size: 48px;
+  color: #2196F3;
+  margin-bottom: 15px;
+}
+
+.servicio-adicional-card h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.servicio-adicional-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Proceso de Trabajo */
+.seccion-proceso {
+  margin: 60px 0;
+}
+
+.texto-proceso {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.proceso-timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding: 20px 0;
+}
+
+.proceso-timeline::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #ddd;
+  z-index: 0;
+}
+
+.proceso-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.proceso-numero {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+}
+
+.proceso-step h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.proceso-step p {
+  font-size: 14px;
+  color: #666;
+  padding: 0 10px;
+}
+
+/* Ventajas */
+.seccion-ventajas {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+  margin: 60px -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.ventaja-item {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.ventaja-icono {
+  font-size: 56px;
+  color: #2196F3;
+  margin-bottom: 20px;
+}
+
+.ventaja-item h4 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.ventaja-item p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA Servicios */
+.seccion-cta-servicios {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  padding: 60px 0;
+  margin: 60px -15px 0 -15px;
+  border-radius: 8px;
+}
+
+.seccion-cta-servicios h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.seccion-cta-servicios p {
+  font-size: 18px;
+  color: #fff;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.seccion-cta-servicios .btn {
+  margin: 0 10px;
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.seccion-cta-servicios .btn-primary {
+  background-color: #fff;
+  border: none;
+  color: #2196F3;
+}
+
+.seccion-cta-servicios .btn-primary:hover {
+  background-color: #f5f5f5;
+  color: #1976D2;
+}
+
+.seccion-cta-servicios .btn-default {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.seccion-cta-servicios .btn-default:hover {
+  background-color: #fff;
+  color: #2196F3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .titulo-servicio {
+    font-size: 26px;
+  }
+  
+  .servicio-detalle {
+    margin-bottom: 40px;
+  }
+  
+  .img-servicio {
+    margin-bottom: 30px;
+  }
+  
+  .proceso-timeline {
+    flex-direction: column;
+  }
+  
+  .proceso-timeline::before {
+    display: none;
+  }
+  
+  .proceso-step {
+    margin-bottom: 30px;
+  }
+  
+  .ventaja-item {
+    margin-bottom: 30px;
+  }
+  
+  .seccion-cta-servicios .btn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+
+
+/* PÁGINA CONTACTO */
+.contacto-page {
+  padding-bottom: 40px;
+}
+
+/* Banner Hero Contacto */
+.banner-hero-contacto {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  padding: 60px 0;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Introducción Contacto */
+.seccion-intro-contacto {
+  margin-bottom: 60px;
+}
+
+.titulo-seccion-cont {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.titulo-seccion-cont.text-center::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: #2196F3;
+}
+
+.texto-intro-contacto {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Información de Contacto */
+.seccion-info-contacto {
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.img-contacto {
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+
+.info-contacto-detalle {
+  padding: 20px;
+}
+
+.info-contacto-detalle h3 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.contacto-item:hover {
+  background-color: #e3f2fd;
+}
+
+.contacto-icono {
+  font-size: 32px;
+  color: #2196F3;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.contacto-texto h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.contacto-texto p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Formulario de Contacto */
+.formulario-contacto-seccion {
+  margin-bottom: 60px;
+}
+
+.formulario-contacto-contenedor {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-contacto-contenedor h3 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitulo-formulario {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.formulario-contacto-principal .form-control {
+  font-size: 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  height: auto;
+  line-height: 1.5;
+}
+
+.formulario-contacto-principal select.form-control {
+  height: 44px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.formulario-contacto-principal .form-control:focus {
+  border-color: #2196F3;
+  box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+}
+
+.formulario-contacto-principal .control-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.btn-contacto {
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #2196F3;
+  border: none;
+  transition: background-color 0.3s ease;
+  color: #fff;
+}
+
+.btn-contacto:hover {
+  background-color: #1976D2;
+  color: #fff;
+}
+
+
+/* Mapa Grande */
+.seccion-mapa-contacto {
+  margin: 60px 0;
+}
+
+.texto-mapa {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.mapa-grande {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* FAQ */
+.seccion-faq-contacto {
+  background-color: #e3f2fd;
+  padding: 50px 0;
+  margin: 60px -15px 0 -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.faq-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #2196F3;
+}
+
+.faq-item h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.faq-item h4 .glyphicon {
+  color: #2196F3;
+  margin-right: 10px;
+}
+
+.faq-item p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formulario-contacto-contenedor {
+    padding: 25px;
+  }
+  
+  .formulario-contacto-principal .control-label {
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  
+  .formulario-contacto-principal .col-sm-offset-3 {
+    margin-left: 0;
+  }
+  
+  .alternativa-card {
+    margin-bottom: 20px;
+  }
+  
+  .img-contacto {
+    margin-bottom: 30px;
+  }
+  
+  .btn-contacto {
+    width: 100%;
+  }
+}
