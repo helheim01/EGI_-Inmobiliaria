@@ -1,0 +1,48 @@
+http://localhost:8080/pronvicias/agregar
+
+{
+  "nombre": "Mendoza"
+}
+
+http://localhost:8080/impuestos/agregar
+
+{
+  "provincia": {
+    "id": 1
+  },
+  "porcentaje": 15.50
+}
+
+http://localhost:8080/tipopropiedades/agregar
+{
+  "nombre": "Casa"
+}
+
+http://localhost:8080/ubicaciones/agregar
+{
+  "barrio": "Centro",
+  "municipio": "Ciudad de Mendoza",
+  "provincia": { "id": 1 }
+}
+
+http://localhost:8080/propiedades/agregar
+{
+  "nombre": "Casa en el Centro",
+  "descripcion": "Casa céntrica, 3 dormitorios, 2 baños",
+  "precioBase": 150000.0,
+  "moneda":"ARS",
+  "superficieM2": 120.5,
+  "ambientes": 5,
+  "ubicacion": { "id": 1 },
+  "tipoPropiedad": { "id": 1 }
+}
+
+
+http://localhost:8080/imagenes/agregar
+{
+  "urlImagen": "https://misimagenes.com/casa1.jpg",
+  "orden": 1,
+  "propiedad": {
+    "id": 1
+  }
+}
